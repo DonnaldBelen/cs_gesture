@@ -44,9 +44,9 @@ class Act_Hand_Push:
         # self.seed_naval_z_dist = inifile.getint('gesture_recognition','seed_naval_z_dist')
         self.arm_stretch_thresh = 0.85
         #Generate the screen as a plan to determine the intercept point with the push direction
-        self.screen_point_1 = np.array([0, 0, -1000]) #Temporary dummy values - change to real values when known
-        self.screen_point_2 = np.array([50, 0, -1000])
-        self.screen_point_3 = np.array([0, 50, -1000])
+        self.screen_point_1 = np.array([0, 0, 500]) #Temporary dummy values - change to real values when known
+        self.screen_point_2 = np.array([50, 0, 500])
+        self.screen_point_3 = np.array([0, 50, 500])
         self.screen_plane = py.plane.create_from_points(self.screen_point_1, self.screen_point_2, self.screen_point_3)
 
     def calculate(self,
@@ -114,12 +114,12 @@ class Act_Hand_Push:
             intersect_r = py.geometric_tests.ray_intersect_plane(push_dir_ray_r, self.screen_plane, False)
 
             # Determine if a push happens
-            if r_wrist[y_idx] > naval[y_idx]:
+            if r_wrist[y_idx] < naval[y_idx]:
                 if r_curr_arm_length >= r_max_arm_length:
                     self.is_r_hand_push = 1
                     self.r_pushb_intersect = intersect_r
 
-            if l_wrist[y_idx] > naval[y_idx]:
+            if l_wrist[y_idx] < naval[y_idx]:
                 if l_curr_arm_length >= l_max_arm_length:
                     self.is_l_hand_push = 1
                     self.l_pushb_intersect = intersect_l

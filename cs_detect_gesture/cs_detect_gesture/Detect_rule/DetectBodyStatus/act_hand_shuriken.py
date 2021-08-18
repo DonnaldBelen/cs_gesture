@@ -48,9 +48,9 @@ class Act_Hand_Shuriken:
         # self.seed_naval_z_dist = inifile.getint('gesture_recognition','seed_naval_z_dist')
         self.toss_start_limit = 0.9
         #Generate the screen as a plan to determine the intercept point with the push direction
-        self.screen_point_1 = np.array([0, 0, -1000]) #Temporary dummy values - change to real values when known
-        self.screen_point_2 = np.array([50, 0, -1000])
-        self.screen_point_3 = np.array([0, 50, -1000])
+        self.screen_point_1 = np.array([0, 0, 500]) #Temporary dummy values - change to real values when known
+        self.screen_point_2 = np.array([50, 0, 500])
+        self.screen_point_3 = np.array([0, 50, 500])
         self.screen_plane = py.plane.create_from_points(self.screen_point_1, self.screen_point_2, self.screen_point_3)
 
 
@@ -133,13 +133,13 @@ class Act_Hand_Shuriken:
 
             # Determine if a shuriken is thrown
             if self.is_r_shuriken == 0 and self.reload_status_r == 1:
-                if r_wrist[y_idx] >= naval[y_idx]:
+                if r_wrist[y_idx] <= naval[y_idx]:
                     if wr_hd_length_r >= el_hd_length_r:
                         if r_ratio >1:
                             self.is_r_shuriken = 1
                             self.reload_status_r = 0
             if self.is_l_shuriken == 0 and self.reload_status_l == 1:
-                if l_wrist[y_idx] >= naval[y_idx]:
+                if l_wrist[y_idx] <= naval[y_idx]:
                     if wr_hd_length_l >= el_hd_length_l:
                         if l_ratio >1:
                             self.is_l_shuriken = 1

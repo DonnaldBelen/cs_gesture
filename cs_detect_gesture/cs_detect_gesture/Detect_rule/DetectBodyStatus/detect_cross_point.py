@@ -143,7 +143,7 @@ class DetectCrossPoint:
                     self.look_point_y = ay
                     self.look_point_z = az
                     self.look_object = obj
-                    self.look_distance = distance
+                    self.look_distance = 0#distance
 
     def Calculate(self,
                   h_dir=0.0,
