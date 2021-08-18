@@ -6,7 +6,7 @@
 
 ```markdown
 public struct GestureData{
-        //statuses
+        //status
         //Shuriken
         public bool throw_shuriken;
         public bool is_r_shuriken;
