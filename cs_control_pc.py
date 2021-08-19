@@ -7,7 +7,7 @@ import argparse
 running_procs = [
     Popen(['ros2', 'run', 'cs_azure_kinect', 'capture', '0', '000060100112', '1', '0', '0', '30'], bufsize=0),
     # Popen(['ros2', 'run', 'cs_azure_kinect', 'capture', '1', '0', '0', '30'], bufsize=0),
-    Popen(['ros2', 'run', 'cs_azure_kinect_merge', 'run', '--num', '2'], bufsize=0),
+    Popen(['ros2', 'run', 'cs_azure_kinect_merge', 'run', '--num', '1'], bufsize=0),
 
     #Popen(['ros2', 'run', 'cs_detect_sitting_seat', 'run', '--no', '1'], bufsize=0),
     #Popen(['ros2', 'run', 'cs_detect_sitting_seat', 'run', '--no', '2'], bufsize=0),
